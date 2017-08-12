@@ -6,7 +6,7 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 #GPIO.cleanup()
 GPIO.setwarnings(False)
-GPIO.setup(4,GPIO.out)
+GPIO.setup(4,GPIO.OUT)
 
 
 max_Temperature = 40 # The maximum temperature in Celsius after which we turn on the fan
@@ -17,7 +17,7 @@ while True:
 	temp =(res.replace("temp=","").replace("'C\n",""))
 	print (temp)
 
-	if temp>max_Temperature:
+	if float(temp)>max_Temperature:
 		GPIO.output(4, GPIO.HIGH)
 		print ("Fan on")
 	else:
