@@ -1,3 +1,4 @@
+#!venv python
 import os
 from time import sleep
 import RPi.GPIO as GPIO
@@ -20,12 +21,11 @@ while True:
 	if float(temp)>max_Temperature:
 		GPIO.output(4, GPIO.HIGH)
 		print ("Fan on")
+		sleep(60)
 	else:
 		GPIO.output(4, GPIO.LOW)
 		print ("Fan off")
 
-	sleep(5) 
+	sleep(2) 
 
 #end
-
-
